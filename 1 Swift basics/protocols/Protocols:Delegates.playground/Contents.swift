@@ -44,9 +44,19 @@ func *(valueA: Number, valueB: Number) -> Float{
     return valueA.floatValue * valueB.floatValue
 }
 
+
 let x: Double = 1.2347
 let y: Int = 5
 let q = x.floatValue + y.floatValue
+
+
+
+/**
+ *
+ * 'Question' playground under the here
+ *
+ */
+
 
 class Question {
     var type: QuestionType
@@ -73,11 +83,29 @@ enum AnswerType : String{
     case multipleChoice = "Sgt. Pepper"
     case shortAnswer = "Salem"
     case essay = "Molecular fusion happens when a daddy molecule and a mommy molecule love each other very much"
+    
     static let types = [trueFalse,multipleChoice,shortAnswer,essay]
 }
 
 protocol QuestionGenerator {
     func generateRandomQuestion() -> Question
+}
+class Answer {
+    
+}
+
+protocol AnswerGenerator: QuestionGenerator{
+    func generateRandomAnswer() -> Answer
+}
+
+class Jeopardy: AnswerGenerator{
+    func generateRandomQuestion() -> Question {
+        //
+    }
+    
+    func generateRandomAnswer() -> Answer {
+        //
+    }
 }
 
 class Quiz: QuestionGenerator {
