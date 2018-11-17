@@ -9,12 +9,29 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var swooshLbl: UIImageView!
+    @IBOutlet weak var bgImg: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        /* view coming from UIView on UIViewController
+         * frame -> position and size
+         *
+         */
+        
+        
+        swooshLbl.frame = CGRect(x: view.frame.size.width / 2 - swooshLbl.frame.size.width / 2,
+                                 y: 50 ,
+                                 width: swooshLbl.frame.size.width,
+                                 height: swooshLbl.frame.size.height)
+        // get full screen because of the view
+        bgImg.frame = view.frame
+        
+        
     }
 
+    
 
 }
 
