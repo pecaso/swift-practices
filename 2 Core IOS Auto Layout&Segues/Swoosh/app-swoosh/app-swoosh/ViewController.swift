@@ -20,14 +20,20 @@ class ViewController: UIViewController {
          *
          */
         
+        /* with code
+         *
+         */
         
-        swooshLbl.frame = CGRect(x: view.frame.size.width / 2 - swooshLbl.frame.size.width / 2,
-                                 y: 50 ,
-                                 width: swooshLbl.frame.size.width,
-                                 height: swooshLbl.frame.size.height)
-        // get full screen because of the view
-        bgImg.frame = view.frame
+//        swooshLbl.frame = CGRect(x: view.frame.size.width / 2 - swooshLbl.frame.size.width / 2,
+//                                 y: 50 ,
+//                                 width: swooshLbl.frame.size.width,
+//                                 height: swooshLbl.frame.size.height)
+//        // get full screen because of the view
+//        bgImg.frame = view.frame
         
+        
+    }
+    @IBAction func unwindFromSkillVC(unwindSegue: UIStoryboardSegue) {
         
     }
 
