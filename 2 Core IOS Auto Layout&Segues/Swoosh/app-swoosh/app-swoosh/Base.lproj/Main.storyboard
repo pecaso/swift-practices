@@ -56,7 +56,7 @@
                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PTq-tk-3uG" kind="show" id="1Pm-fV-LtU"/>
+                                    <segue destination="PTq-tk-3uG" kind="show" id="7EL-27-iXe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -152,9 +152,12 @@
                                     <constraint firstAttribute="height" constant="50" id="XW5-7S-wxu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="GET STARTED">
+                                <state key="normal" title="NEXT">
                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="PTq-tk-3uG" eventType="touchUpInside" id="64D-uk-Px9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired League:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ods-MH-JHM">
                                 <rect key="frame" x="20" y="100.5" width="335" height="27.5"/>
@@ -197,6 +200,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3hh-an-cMF"/>
                     </view>
+                    <connections>
+                        <segue destination="bzc-Wz-n9q" kind="show" identifier="skillVCSegue" id="dzp-tS-DzQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNg-YW-5S1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yxI-oT-coE" userLabel="Exit" sceneMemberID="exit"/>
@@ -286,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acn-Tw-j8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="131"/>
+            <point key="canvasLocation" x="1626" y="131"/>
         </scene>
     </scenes>
     <resources>
