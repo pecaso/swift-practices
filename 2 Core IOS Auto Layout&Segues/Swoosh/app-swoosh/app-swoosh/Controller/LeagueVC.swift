@@ -48,16 +48,14 @@ class LeagueVC: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // as? -> we use it because destination is a UIViewController object
+        if let skillVC = segue.destination as? SkillVC { // try and run if let
+            skillVC.player = player
+        }
+    }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
