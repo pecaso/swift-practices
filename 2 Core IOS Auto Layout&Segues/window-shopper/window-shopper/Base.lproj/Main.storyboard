@@ -47,23 +47,53 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLc-oH-d2Y">
+                                <rect key="frame" x="20" y="300" width="335" height="63.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dm-Ra-4ON">
+                                <rect key="frame" x="166" y="365.5" width="43.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTN-mu-LYF">
+                                <rect key="frame" x="16" y="617" width="339" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Clear Calculator">
+                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearCalculator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vsa-Tz-pgO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yYN-ih-w4k" firstAttribute="height" secondItem="yoo-pu-lEI" secondAttribute="height" id="135-Vp-mlU"/>
+                            <constraint firstItem="3dm-Ra-4ON" firstAttribute="centerX" secondItem="CLc-oH-d2Y" secondAttribute="centerX" id="1ba-e4-rG9"/>
                             <constraint firstItem="4XS-dI-iQg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2gM-Hw-EIs"/>
                             <constraint firstItem="4XS-dI-iQg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="5PY-0O-hmr"/>
+                            <constraint firstItem="CLc-oH-d2Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="70K-BX-OMI"/>
+                            <constraint firstItem="CLc-oH-d2Y" firstAttribute="top" secondItem="yYN-ih-w4k" secondAttribute="bottom" constant="45" id="LxR-WC-wkI"/>
+                            <constraint firstItem="CLc-oH-d2Y" firstAttribute="width" secondItem="yYN-ih-w4k" secondAttribute="width" id="PmS-c3-Kta"/>
                             <constraint firstItem="yYN-ih-w4k" firstAttribute="trailing" secondItem="yoo-pu-lEI" secondAttribute="trailing" id="YBE-Gu-QV3"/>
                             <constraint firstItem="yYN-ih-w4k" firstAttribute="top" secondItem="yoo-pu-lEI" secondAttribute="bottom" constant="25" id="bfz-MO-FhO"/>
                             <constraint firstItem="yoo-pu-lEI" firstAttribute="top" secondItem="4XS-dI-iQg" secondAttribute="bottom" constant="35" id="d0a-OI-2lY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yoo-pu-lEI" secondAttribute="trailing" constant="20" id="j6M-KX-4Ub"/>
+                            <constraint firstItem="3dm-Ra-4ON" firstAttribute="top" secondItem="CLc-oH-d2Y" secondAttribute="bottom" constant="2" id="lOq-Pf-O3A"/>
                             <constraint firstItem="yYN-ih-w4k" firstAttribute="leading" secondItem="yoo-pu-lEI" secondAttribute="leading" id="pF8-K7-Sjx"/>
                             <constraint firstItem="yoo-pu-lEI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y0u-P2-WlW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="hoursLbl" destination="3dm-Ra-4ON" id="h0N-mf-juA"/>
                         <outlet property="priceTxt" destination="yYN-ih-w4k" id="zs3-yw-Obh"/>
+                        <outlet property="resultLbl" destination="CLc-oH-d2Y" id="mIF-00-xTM"/>
                         <outlet property="wageTxt" destination="yoo-pu-lEI" id="cyW-Vk-kVg"/>
                     </connections>
                 </viewController>
