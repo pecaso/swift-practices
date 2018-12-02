@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		843B2A9C21B3F3A500C58A88 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B2A9B21B3F3A500C58A88 /* Product.swift */; };
+		843B2A9E21B404B900C58A88 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B2A9D21B404B900C58A88 /* ProductVC.swift */; };
 		84EDA93921B155DA005680C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDA93821B155DA005680C8 /* AppDelegate.swift */; };
 		84EDA93B21B155DA005680C8 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDA93A21B155DA005680C8 /* CategoriesVC.swift */; };
 		84EDA93E21B155DA005680C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EDA93C21B155DA005680C8 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		843B2A9B21B3F3A500C58A88 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		843B2A9D21B404B900C58A88 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		84EDA93521B155DA005680C8 /* coder-swag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coder-swag.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EDA93821B155DA005680C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EDA93A21B155DA005680C8 /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				84EDA93A21B155DA005680C8 /* CategoriesVC.swift */,
+				843B2A9D21B404B900C58A88 /* ProductVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				84FBD06421B2A16400D43CE8 /* Category.swift in Sources */,
 				84EDA93921B155DA005680C8 /* AppDelegate.swift in Sources */,
 				84FBD06721B2A3F000D43CE8 /* DataServices.swift in Sources */,
+				843B2A9E21B404B900C58A88 /* ProductVC.swift in Sources */,
 				84FBD06221B29A3E00D43CE8 /* ProductCell.swift in Sources */,
 				84EDA95021B15DFA005680C8 /* CategoryCell.swift in Sources */,
 				843B2A9C21B3F3A500C58A88 /* Product.swift in Sources */,
