@@ -638,7 +638,7 @@ const int FrontViewPositionNone = 0xff;
     return self;
 }
 
-#mark - Customize in Here
+#pragma mark - Customize in Here
 - (void)_initDefaultProperties
 {
     _frontViewPosition = FrontViewPositionLeft;
