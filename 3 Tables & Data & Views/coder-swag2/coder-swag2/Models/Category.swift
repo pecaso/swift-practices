@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct Category {
-    private(set) public var title: String
-    private(set) public var imageName: String
+struct Category: Codable {
+    public var title: String
+    public var image: String
+    public var products: [Product]
     
-    init(title:String, imageName: String) {
-        self.title = title
-        self.imageName = imageName
+    private enum CodingKeys: String,CodingKey {
+        case title = "title", image = "image", products = "products"
     }
+    
 }

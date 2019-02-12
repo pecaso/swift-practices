@@ -8,14 +8,13 @@
 
 import Foundation
 
-struct Product {
-    private(set) public var title: String
-    private(set) public var price: String
-    private(set) public var imageName: String
+struct Product: Codable {
+    public var title: String
+    public var price: String
+    public var image: String
     
-    init(title: String, price: String, imageName: String) {
-        self.title = title
-        self.price = price
-        self.imageName = imageName
+    private enum CodingKeys: String, CodingKey {
+        case title = "title",price = "price", image = "image"
     }
+    
 }
