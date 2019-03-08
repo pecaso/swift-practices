@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--View Controller-->
+        <!--Current RunVC-->
         <scene sceneID="xTB-jc-1c7">
             <objects>
-                <viewController id="eSc-sg-UPQ" sceneMemberID="viewController">
+                <viewController id="eSc-sg-UPQ" customClass="CurrentRunVC" customModule="Treads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pk3-RV-eHy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,16 +173,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDT-nO-EbC">
                                 <rect key="frame" x="256" y="552" width="75" height="75"/>
                                 <state key="normal" image="pauseButton"/>
+                                <connections>
+                                    <action selector="pauseButtonPressed:" destination="eSc-sg-UPQ" eventType="touchUpInside" id="Opz-2Y-ak2"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunButton" translatesAutoresizingMaskIntoConstraints="NO" id="b9B-Mm-BXh">
-                                <rect key="frame" x="57" y="561" width="57" height="57"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END RUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pst-YH-AgY">
                                 <rect key="frame" x="145.5" y="579.5" width="76.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                 <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunButton" translatesAutoresizingMaskIntoConstraints="NO" id="b9B-Mm-BXh">
+                                <rect key="frame" x="57" y="561" width="57" height="57"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -213,6 +216,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P1C-81-2xs"/>
                     </view>
+                    <connections>
+                        <outlet property="distanceLabel" destination="a2F-Bn-DMd" id="rRU-ZG-qd7"/>
+                        <outlet property="durationLabel" destination="rn6-JF-HRi" id="2Cy-kY-imu"/>
+                        <outlet property="paceLabel" destination="sOe-aC-YmN" id="NVc-LT-j24"/>
+                        <outlet property="pauseBtn" destination="aDT-nO-EbC" id="Iwr-Fs-5E4"/>
+                        <outlet property="sliderImageView" destination="b9B-Mm-BXh" id="CgY-qb-j1N"/>
+                        <outlet property="swipeBackgroundImageView" destination="kJF-JH-hLT" id="fPX-Cv-6YP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZJ-9f-jNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
