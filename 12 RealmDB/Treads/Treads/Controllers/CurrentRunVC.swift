@@ -30,6 +30,7 @@ class CurrentRunVC: LocationVC {
         sliderImageView.addGestureRecognizer(swipeGesture)
         sliderImageView.isUserInteractionEnabled = true
         swipeGesture.delegate = self as? UIGestureRecognizerDelegate
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,15 +83,15 @@ extension CurrentRunVC: CLLocationManagerDelegate {
         }
     }
  
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if startLocation == nil {
-            // locations is array
-            startLocation = locations.first
-            
-        } else if let location = locations.last {
-            runDistance += lastLocation.distance(from: location)
-            distanceLabel.text = "\(runDistance)"
-        }
-        lastLocation = locations.last
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if startLocation == nil {
+//            // locations is array
+//            startLocation = locations.first
+//
+//        } else if let location = locations.last {
+//            runDistance += lastLocation.distance(from: location)
+//            distanceLabel.text = "\(runDistance.metersToMiles(places: 2))"
+//        }
+//        lastLocation = locations.last
+//    }
 }
