@@ -20,8 +20,11 @@ class CurrentRunVC: LocationVC {
     
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
+    var timer = Timer()
     
     var runDistance: Double = 0.0
+    
+    var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +44,22 @@ class CurrentRunVC: LocationVC {
     }
     func startRun() {
         manager?.startUpdatingLocation()
+        startTimer()
     }
     
     func endRun() {
         manager?.stopUpdatingLocation()
+    }
+    
+    func startTimer() {
+        durationLabel.text = counter.formatTimeDurationToString()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func updateCounter() {
+        counter += 1
+        durationLabel.text = counter.formatTimeDurationToString()
     }
     
     @IBAction func pauseButtonPressed(_ sender: Any) {
@@ -83,15 +98,15 @@ extension CurrentRunVC: CLLocationManagerDelegate {
         }
     }
  
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if startLocation == nil {
-//            // locations is array
-//            startLocation = locations.first
-//
-//        } else if let location = locations.last {
-//            runDistance += lastLocation.distance(from: location)
-//            distanceLabel.text = "\(runDistance.metersToMiles(places: 2))"
-//        }
-//        lastLocation = locations.last
-//    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if startLocation == nil {
+            // locations is array
+            startLocation = locations.first
+
+        } else if let location = locations.last {
+            runDistance += lastLocation.distance(from: location)
+            distanceLabel.text = "\(runDistance.metersToMiles(places: 2))"
+        }
+        lastLocation = locations.last
+    }
 }
