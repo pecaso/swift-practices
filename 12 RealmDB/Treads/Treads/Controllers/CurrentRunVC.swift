@@ -21,10 +21,9 @@ class CurrentRunVC: LocationVC {
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
     var timer = Timer()
-    
     var runDistance: Double = 0.0
-    
     var counter = 0
+    var pace = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +59,12 @@ class CurrentRunVC: LocationVC {
     @objc func updateCounter() {
         counter += 1
         durationLabel.text = counter.formatTimeDurationToString()
+    }
+    
+    func calculatePace(time seconds: Int, miles: Double) -> String{
+        pace = Int(Double(seconds) / miles)
+        print("pace \(pace)")
+        return pace.formatTimeDurationToString()
     }
     
     @IBAction func pauseButtonPressed(_ sender: Any) {
@@ -106,6 +111,9 @@ extension CurrentRunVC: CLLocationManagerDelegate {
         } else if let location = locations.last {
             runDistance += lastLocation.distance(from: location)
             distanceLabel.text = "\(runDistance.metersToMiles(places: 2))"
+            if counter > 0 && runDistance > 0 {
+                paceLabel.text = calculatePace(time: counter, miles: runDistance)
+            }
         }
         lastLocation = locations.last
     }
