@@ -16,6 +16,10 @@
 		C284BB4F22401F2700A7463B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C284BB4E22401F2700A7463B /* Assets.xcassets */; };
 		C284BB5222401F2700A7463B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C284BB5022401F2700A7463B /* LaunchScreen.storyboard */; };
 		C284BB5F2240230000A7463B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C284BB5E2240230000A7463B /* GoogleService-Info.plist */; };
+		C2EAA3CE22419552000E6D74 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAA3CD22419552000E6D74 /* AuthVC.swift */; };
+		C2EAA3D0224195A0000E6D74 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAA3CF224195A0000E6D74 /* LoginVC.swift */; };
+		C2EAA3D2224196CA000E6D74 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAA3D1224196CA000E6D74 /* InsetTextField.swift */; };
+		C2EAA3D422419D33000E6D74 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAA3D322419D33000E6D74 /* ShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		C284BB5122401F2700A7463B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C284BB5322401F2700A7463B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C284BB5E2240230000A7463B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C2EAA3CD22419552000E6D74 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		C2EAA3CF224195A0000E6D74 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		C2EAA3D1224196CA000E6D74 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
+		C2EAA3D322419D33000E6D74 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		C51AC8C09E357FC3273F5F7A /* Pods-breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +104,8 @@
 			children = (
 				C284BB4722401F2500A7463B /* FirstViewController.swift */,
 				C284BB4922401F2500A7463B /* SecondViewController.swift */,
+				C2EAA3CD22419552000E6D74 /* AuthVC.swift */,
+				C2EAA3CF224195A0000E6D74 /* LoginVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,6 +113,8 @@
 		C284BB5A2240207900A7463B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2EAA3D1224196CA000E6D74 /* InsetTextField.swift */,
+				C2EAA3D322419D33000E6D74 /* ShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,9 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2EAA3CE22419552000E6D74 /* AuthVC.swift in Sources */,
 				C284BB4A22401F2500A7463B /* SecondViewController.swift in Sources */,
+				C2EAA3D0224195A0000E6D74 /* LoginVC.swift in Sources */,
 				C284BB4622401F2500A7463B /* AppDelegate.swift in Sources */,
+				C2EAA3D422419D33000E6D74 /* ShadowView.swift in Sources */,
 				C284BB4822401F2500A7463B /* FirstViewController.swift in Sources */,
+				C2EAA3D2224196CA000E6D74 /* InsetTextField.swift in Sources */,
 				C21B2E3B22402C1600FD3DB8 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
