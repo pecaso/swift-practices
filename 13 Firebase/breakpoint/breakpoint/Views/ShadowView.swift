@@ -14,6 +14,9 @@ class ShadowView: UIView {
         self.layer.shadowOpacity = 0.75
         self.layer.shadowRadius = 5
         self.layer.shadowColor = #colorLiteral(red: 0.431372549, green: 1, blue: 0.7490196078, alpha: 1)
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.cornerRadius = CGFloat(20)
+        
     }
     
     override func awakeFromNib() {
