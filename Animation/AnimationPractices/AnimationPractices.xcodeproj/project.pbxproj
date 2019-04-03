@@ -14,6 +14,7 @@
 		C220C14F224D3939002DD73D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C220C14D224D3939002DD73D /* LaunchScreen.storyboard */; };
 		C220C157224D3B7F002DD73D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220C156224D3B7F002DD73D /* Extensions.swift */; };
 		C220C159224D41C5002DD73D /* CustomizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220C158224D41C5002DD73D /* CustomizeButton.swift */; };
+		C25136B8224E88DA0077C555 /* CircleAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25136B7224E88DA0077C555 /* CircleAnimationVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C220C150224D3939002DD73D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C220C156224D3B7F002DD73D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C220C158224D41C5002DD73D /* CustomizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeButton.swift; sourceTree = "<group>"; };
+		C25136B7224E88DA0077C555 /* CircleAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		C220C143224D3938002DD73D /* AnimationPractices */ = {
 			isa = PBXGroup;
 			children = (
+				C25136BB224E88E60077C555 /* View */,
+				C25136BA224E88E20077C555 /* Model */,
+				C25136B9224E88DD0077C555 /* Controller */,
 				C220C144224D3938002DD73D /* AppDelegate.swift */,
-				C220C146224D3938002DD73D /* ViewController.swift */,
 				C220C148224D3938002DD73D /* Main.storyboard */,
 				C220C14B224D3939002DD73D /* Assets.xcassets */,
 				C220C14D224D3939002DD73D /* LaunchScreen.storyboard */,
 				C220C150224D3939002DD73D /* Info.plist */,
 				C220C156224D3B7F002DD73D /* Extensions.swift */,
-				C220C158224D41C5002DD73D /* CustomizeButton.swift */,
 			);
 			path = AnimationPractices;
+			sourceTree = "<group>";
+		};
+		C25136B9224E88DD0077C555 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C220C146224D3938002DD73D /* ViewController.swift */,
+				C25136B7224E88DA0077C555 /* CircleAnimationVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C25136BA224E88E20077C555 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C25136BB224E88E60077C555 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C220C158224D41C5002DD73D /* CustomizeButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +170,7 @@
 			files = (
 				C220C147224D3938002DD73D /* ViewController.swift in Sources */,
 				C220C157224D3B7F002DD73D /* Extensions.swift in Sources */,
+				C25136B8224E88DA0077C555 /* CircleAnimationVC.swift in Sources */,
 				C220C145224D3938002DD73D /* AppDelegate.swift in Sources */,
 				C220C159224D41C5002DD73D /* CustomizeButton.swift in Sources */,
 			);

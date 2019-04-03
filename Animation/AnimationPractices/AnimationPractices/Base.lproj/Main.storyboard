@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DUP-DW-aUk">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimationPractices" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,14 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-oC-CsH" customClass="CustomizeButton" customModule="AnimationPractices" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-oC-CsH" customClass="CustomizeButton" customModule="AnimationPractices" customModuleProvider="target">
                                 <rect key="frame" x="107" y="423" width="200" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="FVJ-Ec-cTw"/>
-                                    <constraint firstAttribute="width" constant="200" id="IOs-mR-4n2"/>
-                                    <constraint firstAttribute="height" constant="50" id="R0e-kG-jOk"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="nMd-cs-10F"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Random Color">
@@ -35,10 +29,11 @@
                                     <action selector="randomButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNN-lE-Imu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXC-ar-2bA" customClass="CustomizeButton" customModule="AnimationPractices" customModuleProvider="target">
-                                <rect key="frame" x="96" y="593" width="62" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXC-ar-2bA" customClass="CustomizeButton" customModule="AnimationPractices" customModuleProvider="target">
+                                <rect key="frame" x="96" y="544" width="62" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="wpM-Mk-Bjr"/>
+                                    <constraint firstAttribute="height" constant="50" id="eXd-Us-6lb"/>
+                                    <constraint firstAttribute="width" constant="62" id="laX-Vr-tn1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <state key="normal" title="Dim"/>
@@ -46,11 +41,8 @@
                                     <action selector="dimButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oas-Y8-eGQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k3-4j-XtD" customClass="CustomizeButton" customModule="AnimationPractices" customModuleProvider="target">
-                                <rect key="frame" x="260" y="593" width="62" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zRm-7F-l1A"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k3-4j-XtD" customClass="CustomizeButton" customModule="AnimationPractices" customModuleProvider="target">
+                                <rect key="frame" x="260" y="544" width="62" height="50"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <state key="normal" title="Wiggle"/>
                                 <connections>
@@ -60,10 +52,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fQC-oC-CsH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d0e-05-AMh"/>
+                            <constraint firstItem="fQC-oC-CsH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="8DC-uW-oN7"/>
+                            <constraint firstItem="jXC-ar-2bA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="D1t-GA-1zo"/>
+                            <constraint firstItem="jXC-ar-2bA" firstAttribute="baseline" secondItem="6k3-4j-XtD" secondAttribute="firstBaseline" id="HQ3-sM-PY1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jXC-ar-2bA" secondAttribute="bottom" constant="219" id="Haw-H0-MCt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6k3-4j-XtD" secondAttribute="trailing" constant="92" id="RW7-41-ZwG"/>
+                            <constraint firstItem="jXC-ar-2bA" firstAttribute="top" secondItem="6k3-4j-XtD" secondAttribute="top" id="ejF-PG-W2Q"/>
+                            <constraint firstItem="fQC-oC-CsH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="379" id="hMg-d0-j8r"/>
+                            <constraint firstItem="fQC-oC-CsH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pw2-4V-u4e"/>
+                            <constraint firstItem="fQC-oC-CsH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s23-om-Sgy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1QT-tB-F3U"/>
+                    <navigationItem key="navigationItem" id="9Uf-Sj-dTE"/>
                     <connections>
                         <outlet property="dimButton" destination="jXC-ar-2bA" id="xBS-gu-fMV"/>
                         <outlet property="randomButton" destination="fQC-oC-CsH" id="Ku4-yn-96T"/>
@@ -72,7 +74,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1952.1739130434785" y="137.94642857142856"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="up2-Vt-62n">
+            <objects>
+                <viewController id="h6z-pg-p31" customClass="CircleAnimationVC" customModule="AnimationPractices" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GjD-Zh-kw4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eab-Es-K9I"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="00Q-yQ-gSg"/>
+                    <navigationItem key="navigationItem" id="iMp-h1-zaC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TiM-tG-i4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1967" y="820"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fek-In-kTg">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DUP-DW-aUk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YRk-gX-er7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ANh-rZ-pMj"/>
+                        <segue destination="h6z-pg-p31" kind="relationship" relationship="viewControllers" id="MhK-TD-FD5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5p-xx-Nop" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
