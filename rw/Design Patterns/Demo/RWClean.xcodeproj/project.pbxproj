@@ -41,14 +41,13 @@
 		42F164DA1E6C48D600B90E22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F164D91E6C48D600B90E22 /* Main.storyboard */; };
 		42F164DF1E6C494400B90E22 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F164DE1E6C494400B90E22 /* MenuTableViewController.swift */; };
 		42F164E11E6C55C200B90E22 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F164E01E6C55C200B90E22 /* ProductDetailsViewController.swift */; };
-		42F84AB61E6950280029C1E6 /* HomeProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F84AB51E6950280029C1E6 /* HomeProductsViewController.swift */; };
-		42F84AB81E6950350029C1E6 /* BusinessProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F84AB71E6950350029C1E6 /* BusinessProductsViewController.swift */; };
 		42F84ABF1E6953120029C1E6 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F84ABE1E6953120029C1E6 /* ProductCollectionViewCell.swift */; };
 		C23913522333D4AC00681520 /* CleaningServicesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23913512333D4AC00681520 /* CleaningServicesBuilder.swift */; };
 		C23913582333DAF400681520 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23913562333DAF100681520 /* UIImageView+URL.swift */; };
 		C23913592333DAF400681520 /* Int+HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23913572333DAF400681520 /* Int+HTTPStatusCode.swift */; };
 		C239135B2333DB0400681520 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239135A2333DB0400681520 /* NetworkClient.swift */; };
 		C239135D2333DB0C00681520 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239135C2333DB0C00681520 /* NetworkError.swift */; };
+		C239135F2333E97D00681520 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239135E2333E97D00681520 /* ProductsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,14 +88,13 @@
 		42F164D91E6C48D600B90E22 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		42F164DE1E6C494400B90E22 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		42F164E01E6C55C200B90E22 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
-		42F84AB51E6950280029C1E6 /* HomeProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeProductsViewController.swift; sourceTree = "<group>"; };
-		42F84AB71E6950350029C1E6 /* BusinessProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessProductsViewController.swift; sourceTree = "<group>"; };
 		42F84ABE1E6953120029C1E6 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		C23913512333D4AC00681520 /* CleaningServicesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningServicesBuilder.swift; sourceTree = "<group>"; };
 		C23913562333DAF100681520 /* UIImageView+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		C23913572333DAF400681520 /* Int+HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+HTTPStatusCode.swift"; sourceTree = "<group>"; };
 		C239135A2333DB0400681520 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		C239135C2333DB0C00681520 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C239135E2333E97D00681520 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,10 +136,10 @@
 		422FEA5B1E675E8800AFDC41 /* RWClean */ = {
 			isa = PBXGroup;
 			children = (
-				C23913532333DA4E00681520 /* Networking */,
 				422FEA731E67608200AFDC41 /* App */,
 				C23913452333D22600681520 /* Cleaning Services */,
 				C23913462333D22E00681520 /* Home Info */,
+				C23913532333DA4E00681520 /* Networking */,
 				C23913472333D23300681520 /* Theme */,
 				C23913482333D23800681520 /* Welcome */,
 			);
@@ -209,10 +207,9 @@
 		42C0F5D21EB7AE8800C6EBAB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				42F84AB71E6950350029C1E6 /* BusinessProductsViewController.swift */,
 				428766A31E69344E001D72E5 /* CleaningServicesTableViewController.swift */,
-				42F84AB51E6950280029C1E6 /* HomeProductsViewController.swift */,
 				42F164E01E6C55C200B90E22 /* ProductDetailsViewController.swift */,
+				C239135E2333E97D00681520 /* ProductsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -484,8 +481,8 @@
 				C23913592333DAF400681520 /* Int+HTTPStatusCode.swift in Sources */,
 				422FEA5D1E675E8800AFDC41 /* AppDelegate.swift in Sources */,
 				42F164E11E6C55C200B90E22 /* ProductDetailsViewController.swift in Sources */,
+				C239135F2333E97D00681520 /* ProductsViewController.swift in Sources */,
 				422FEA921E676B7500AFDC41 /* HomeSquareFootageViewController.swift in Sources */,
-				42F84AB61E6950280029C1E6 /* HomeProductsViewController.swift in Sources */,
 				C239135B2333DB0400681520 /* NetworkClient.swift in Sources */,
 				429ECFC01E744DB9000E6A8C /* UIViewController+LoadingHUD.swift in Sources */,
 				420B9B541E68D61000972DA3 /* WelcomePageViewController.swift in Sources */,
@@ -500,7 +497,6 @@
 				4276FCB31EB3E1DE004E96B9 /* StartHomeInfoViewController.swift in Sources */,
 				421BD4271E68A3C6002F1F3C /* RoomCountViewController.swift in Sources */,
 				422FEA831E6767EB00AFDC41 /* BedroomCountViewController.swift in Sources */,
-				42F84AB81E6950350029C1E6 /* BusinessProductsViewController.swift in Sources */,
 				422FEA901E676B6D00AFDC41 /* OtherRoomCountViewController.swift in Sources */,
 				4276FCB71EB3E629004E96B9 /* SetNavigationRootSegue.swift in Sources */,
 				C23913582333DAF400681520 /* UIImageView+URL.swift in Sources */,

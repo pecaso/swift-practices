@@ -40,7 +40,21 @@ public class CleaningServicesTableViewController: UITableViewController {
   
   private func configureTableView() {
     tableView.tableFooterView = UIView()
-  }  
+  }
+    
+    private struct SegueIdentifiers {
+        static let business = "Business"
+        static let home = "Home"
+    }
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let viewController = segue.destination as? ProductsViewController else { return }
+        if segue.identifier == SegueIdentifiers.business {
+            viewController.productType = .business
+        } else if segue.identifier == SegueIdentifiers.home {
+            viewController.productType = .home
+        }
+    }
   
   // MARK: - UITableViewDelegate  
   public override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
