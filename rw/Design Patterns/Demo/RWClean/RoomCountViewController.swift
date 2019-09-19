@@ -28,58 +28,43 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
+public class RoomCountViewController: HomeInfoViewController {
   
-  case notAuthenticated
-  case forbidden
-  case notFound
-  
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
+  // MARK: - Instance Properties
+  internal var initialCount: UInt {
+    return 0
   }
   
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
+  internal var count: UInt {
+    get {
+      return _count
+    } set {
+      _count = newValue
+      label.text = "\(newValue)"
     }
   }
   
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
+  private var _count: UInt = 0
+  
+  // MARK: - Outlets
+  @IBOutlet final internal var label: UILabel!
+  @IBOutlet final internal var stepper: UIStepper!  
+  
+  // MARK: - View Lifecycle
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    setupCount()
   }
   
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
-    }
+  private func setupCount() {
+    count = initialCount
+    stepper.value = Double(initialCount)
   }
-}
-
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+  
+  // MARK: - Actions
+  @IBAction final internal func stepperValueChanged(_ sender: UIStepper) {
+    self.count = UInt(sender.value)
   }
 }

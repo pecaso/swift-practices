@@ -48,5 +48,35 @@ public final class NetworkClient {
   // MARK: - Object Lifecycle
   private init(baseURL: URL) {    
     self.baseURL = baseURL
-  }  
+  }
+    
+    public func getProducts(forType type: Product.ProductType,
+                            success _success: @escaping ([Product]) -> Void,
+                            failure _failure: @escaping (NetworkError) -> Void) {
+        let success: ([Product]) -> Void = { products in
+            DispatchQueue.main.async { _success(products) }
+        }
+        let failure: (NetworkError) -> Void = { error in
+            DispatchQueue.main.async { _failure(error) }
+        }
+        let url = baseURL.appendingPathComponent("products/\(type.rawValue)")
+        
+        let task = session.dataTask(with: url,completionHandler: { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse,
+            httpResponse.statusCode.isSuccessHTTPCode,
+            let data = data,
+            let jsonObject = try? JSONSerialization.jsonObject(with: data),
+                let json = jsonObject as? [[String: Any]] else {
+                    if let error = error {
+                        failure(NetworkError(error: error))
+                    } else {
+                        failure(NetworkError(response: response))
+                    }
+                    return
+            }
+            let products = Product.array(jsonArray: json)
+            success(products)
+        })
+        task.resume()
+    }
 }

@@ -28,58 +28,37 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
+public class KitchenSizeViewController: HomeInfoViewController {
   
-  case notAuthenticated
-  case forbidden
-  case notFound
+  // MARK: - Outlets
+  @IBOutlet internal var label: UILabel!
+  @IBOutlet internal var segmentedControl: UISegmentedControl!  
   
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
+  // MARK: - View Lifecycle
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    label.text = homeInfo.kitchenSize.kitchenSizeDescription
   }
   
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
-    }
-  }
-  
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
-  }
-  
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
-    }
+  // MARK: - Actions
+  @IBAction internal func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+    let roomSize = RoomSize(index: sender.selectedSegmentIndex)
+    homeInfo.setKitchenSize(roomSize)
+    label.text = roomSize.kitchenSizeDescription
   }
 }
 
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+// MARK: - RoomSize + kitchenSizeDescription
+extension RoomSize {
+  
+  public var kitchenSizeDescription: String {
+    
+    switch self {
+    case .small: return NSLocalizedString("A smaller-than-average kitchen", comment: "")
+    case .medium: return NSLocalizedString("An average-size kitchen", comment: "")
+    case .large: return NSLocalizedString("A larger-than-average kitchen", comment: "")
+    }
   }
 }

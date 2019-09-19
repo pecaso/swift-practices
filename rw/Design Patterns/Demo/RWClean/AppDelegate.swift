@@ -28,58 +28,40 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
-  
-  case notAuthenticated
-  case forbidden
-  case notFound
-  
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
+@UIApplicationMain
+public final class AppDelegate: UIResponder, UIApplicationDelegate {
+
+  public var window: UIWindow?
+
+  public func application(_ application: UIApplication,
+                          didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    configureRootViewController()
+    return true
   }
   
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
-    }
-  }
-  
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
-  }
-  
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
-    }
+  private func configureRootViewController() {
+    let viewController = window!.rootViewController as! WelcomeViewController
+    viewController.delegate = self
   }
 }
 
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+// MARK: - WelcomeViewControllerDelegate
+extension AppDelegate: WelcomeViewControllerDelegate {
+  
+  public func welcomeViewControllerDonePressed(_ controller: WelcomeViewController) {
+    
+    let newWindow = UIWindow(frame: window!.bounds)
+    newWindow.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+    newWindow.makeKeyAndVisible()
+    newWindow.alpha = 0.0
+    
+    UIView.animate(withDuration: 0.33, animations: {
+      newWindow.alpha = 1.0
+      
+    }, completion: { _ in
+      self.window = newWindow
+    })
   }
 }

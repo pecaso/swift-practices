@@ -28,58 +28,53 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
+public class WelcomePageViewController: UIPageViewController {
   
-  case notAuthenticated
-  case forbidden
-  case notFound
+  // MARK: - Instance Properties
+  public let childIdentifiers = ["page1", "page2", "page3"]
+  internal lazy var childPages: [UIViewController] = { [unowned self] in
+    return self.childIdentifiers.map { identifier in
+      return self.storyboard!.instantiateViewController(withIdentifier: identifier)
+    }
+  }()
   
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
+  // MARK: - View Lifecycle
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    setupPager()
   }
   
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
-    }
-  }
-  
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
-  }
-  
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
-    }
+  private func setupPager() {
+    dataSource = self
+    setViewControllers([childPages.first!], direction: .forward, animated: false, completion: nil)
   }
 }
 
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+// MARK: - UIPageViewControllerDataSource
+extension WelcomePageViewController: UIPageViewControllerDataSource {
+  
+  public func pageViewController(_ pageViewController: UIPageViewController,
+                                 viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    guard let currentIndex = childPages.index(of: viewController), currentIndex > 0 else {
+      return nil
+    }
+    return childPages[currentIndex - 1]
+  }
+  
+  public func pageViewController(_ pageViewController: UIPageViewController,
+                                 viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    guard let currentIndex = childPages.index(of: viewController),
+      currentIndex < (childPages.count - 1) else { return nil }
+    return childPages[currentIndex + 1]
+  }
+  
+  public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    return childPages.count
+  }
+  
+  public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    return 0
   }
 }

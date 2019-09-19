@@ -30,56 +30,35 @@
 
 import Foundation
 
-public enum NetworkError: Error {
+public enum RoomSize: String {
+  case small
+  case medium
+  case large
   
-  case notAuthenticated
-  case forbidden
-  case notFound
-  
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
-  }
-  
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
-    }
-  }
-  
-  public var isAuthError: Bool {
+  public var displayTitle: String {
     switch self {
-    case .notAuthenticated: return true
-    default: return false
+    case .small: return NSLocalizedString("Small", comment: "")
+    case .medium: return NSLocalizedString("Medium", comment: "")
+    case .large: return NSLocalizedString("Large", comment: "")
+    }    
+  }
+  
+  public var index: Int {
+    switch self {
+    case .small:  return 0
+    case .medium: return 1
+    case .large: return 2
     }
   }
   
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
+  public init(index: Int) {
+    precondition(index >= RoomSize.small.index)
+    precondition(index <= RoomSize.large.index)
+    switch index {
+    case RoomSize.small.index: self = .small
+    case RoomSize.medium.index: self = .medium
+    case RoomSize.large.index: self = .large
+    default: fatalError("Unsupported RoomSize index")
     }
-  }
-}
-
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
   }
 }

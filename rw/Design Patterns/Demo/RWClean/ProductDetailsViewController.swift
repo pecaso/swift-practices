@@ -28,58 +28,45 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
+public class ProductDetailsViewController: UIViewController {
   
-  case notAuthenticated
-  case forbidden
-  case notFound
+  // MARK: - Injections
+  public var product: Product!
   
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
+  // MARK: - Outlets
+  @IBOutlet var descriptionLabel: UILabel!
+  @IBOutlet var imageView: UIImageView!
+  @IBOutlet var priceLabel: UILabel!
   
-  public init(error: Error) {
-    self = .networkProblem(error)
-  }
-  
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
-    }
-  }
-  
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
-  }
-  
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
+  // MARK: - View Lifecycle
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    descriptionLabel.text = product.productDescription
+    
+    let numberFormatter = NumberFormatter()
+    numberFormatter.locale = Locale(identifier: "en_US")
+    numberFormatter.numberStyle = .currency
+    
+    if product.priceHourly > 0 {
+      let price = numberFormatter.string(from: product.priceHourly as NSNumber)!
+      priceLabel.text = "Only \(price) / hour"
       
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
+    } else if product.priceSquareFoot > 0 {
+      let price500SqFt = product.priceSquareFoot * 500
+      let price = numberFormatter.string(from: price500SqFt as NSNumber)!
+      priceLabel.text = "\(price) / 500 ft²"
+    } else {
+      priceLabel.text = "Contact Us For Pricing"
     }
+    descriptionLabel.text = product.productDescription
   }
-}
-
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+  
+  // MARK: - Actions
+  
+  @IBAction func makeReservationPressed(_ sender: Any) {
+    
   }
 }

@@ -28,58 +28,54 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
-  
-  case notAuthenticated
-  case forbidden
-  case notFound
-  
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
-  }
-  
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
-    }
-  }
-  
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
-  }
-  
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
-    }
-  }
+// MARK: - WelcomeViewControllerDelegate
+public protocol WelcomeViewControllerDelegate: class {
+  func welcomeViewControllerDonePressed(_ controller: WelcomeViewController)
 }
 
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+// MARK: - WelcomeViewController
+public class WelcomeViewController: UIViewController {
+  
+   // MARK: - Injections
+  public var delegate: WelcomeViewControllerDelegate?
+  
+  // MARK: - Instance Properties
+  internal let imageNames: [String] = ["mop", "toothbrushing_frog", "towels"]
+  internal var index = 0
+  internal var timer: Timer?
+  
+  // MARK: - Outlets
+  @IBOutlet internal var imageView: UIImageView!
+  
+  // MARK: - View Lifecycle
+  public override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
   }
+  
+  public override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    timer = Timer.scheduledTimer(timeInterval: 5.0, target: self,
+                                 selector: #selector(updateImageView(_:)),
+                                 userInfo: nil, repeats: true)
+  }
+  
+  public override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    timer?.invalidate()
+  }
+  
+    @objc internal func updateImageView(_ timer: Timer) {
+    index = (index + 1) < imageNames.count ? (index + 1) : 0
+    imageView.image = UIImage(named: imageNames[index],
+                              in: Bundle(for: type(of: self)),
+                              compatibleWith: nil)
+  }
+    
+  // MARK: - Actions
+  @IBAction func doneButtonPressed(_ sender: Any) {
+    delegate?.welcomeViewControllerDonePressed(self)
+  }  
 }

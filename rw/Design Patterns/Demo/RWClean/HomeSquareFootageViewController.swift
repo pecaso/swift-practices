@@ -28,58 +28,50 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-public enum NetworkError: Error {
+public class HomeSquareFootageViewController: HomeInfoViewController {
   
-  case notAuthenticated
-  case forbidden
-  case notFound
+  // MARK: - Instance Properties
+  internal lazy var numberFormatter: NumberFormatter = {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    return numberFormatter
+  }()
   
-  case networkProblem(Error)
-  case unknown(HTTPURLResponse?)
-  case userCancelled
-  
-  public init(error: Error) {
-    self = .networkProblem(error)
-  }
-  
-  public init(response: URLResponse?) {
-    guard let response = response as? HTTPURLResponse else {
-      self = .unknown(nil)
-      return
-    }
-    switch response.statusCode {
-    case NetworkError.notAuthenticated.statusCode: self = .notAuthenticated
-    case NetworkError.forbidden.statusCode: self = .forbidden
-    case NetworkError.notFound.statusCode: self = .notFound
-    default: self = .unknown(response)
+  internal var squareFeet: UInt {
+    get {
+      return _squareFeet
+    } set {
+      _squareFeet = newValue
+      homeInfo.setSquareFootage(newValue)
+      label.text = numberFormatter.string(from: newValue as NSNumber)
+      guard slider.value == slider.maximumValue else { return }
+      label.text! += "+"
     }
   }
+  private var _squareFeet: UInt = 0
   
-  public var isAuthError: Bool {
-    switch self {
-    case .notAuthenticated: return true
-    default: return false
-    }
+  private let sliderSqFtMultiplier: Float = 500
+  
+  // MARK: - Outlets
+  @IBOutlet internal var label: UILabel!
+  @IBOutlet internal var slider: UISlider!  
+  
+  // MARK: - View Lifecycle
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    setupSquareFootage()
   }
   
-  public var statusCode: Int {
-    switch self {
-    case .notAuthenticated: return 401
-    case .forbidden:        return 403
-    case .notFound:         return 404
-      
-    case .networkProblem(_): return 10001
-    case .unknown(_):        return 10002
-    case .userCancelled:  return 99999
-    }
+  private func setupSquareFootage() {
+    squareFeet = homeInfo.squareFootage
+    slider.value = Float(homeInfo.squareFootage) / sliderSqFtMultiplier
   }
-}
-
-// MARK: - Equatable
-extension NetworkError: Equatable {
-  public static func ==(lhs: NetworkError, rhs: NetworkError) -> Bool {
-    return lhs.statusCode == rhs.statusCode
+  
+  // MARK: - Actions
+  @IBAction func sliderValueChanged(_ sender: UISlider) {
+    let value = roundf(sender.value)
+    squareFeet = UInt(value * sliderSqFtMultiplier)
   }
 }
