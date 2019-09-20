@@ -8,6 +8,15 @@
 
 import UIKit
 
+@objc public protocol ProductViewModelView {
+    @objc optional var productImageView: UIImageView      { get }
+    @objc optional var productPriceLabel: UILabel         { get }
+    @objc optional var productDescriptionLabel: UILabel   { get }
+    @objc optional var productTitleLabel: UILabel         { get }
+}
+
+
+
 public final class ProductViewModel {
 
     
@@ -47,6 +56,13 @@ public final class ProductViewModel {
         }
         titleText = "Contact Us for pricing"
     }
+}
+
+extension ProductViewModel {
     
-    
+    public func configure(_ view: ProductViewModelView) {
+        _ = view.productImageView?.rw_setImage(url: imageURL)
+        view.productPriceLabel!.text = priceText
+        view.productDescriptionLabel!.text = titleText
+    }
 }

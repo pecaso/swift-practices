@@ -44,9 +44,7 @@ public class ProductDetailsViewController: UIViewController {
   public override func viewDidLoad() {
     super.viewDidLoad()
     
-    descriptionLabel.text = productViewModel.descriptionText
-    imageView.rw_setImage(url: productViewModel.imageURL)
-    priceLabel.text = productViewModel.priceText
+    productViewModel.configure(self)
   }
   
   // MARK: - Actions
@@ -54,4 +52,19 @@ public class ProductDetailsViewController: UIViewController {
   @IBAction func makeReservationPressed(_ sender: Any) {
     
   }
+}
+
+extension ProductDetailsViewController: ProductViewModelView {
+    
+    public var productImageView: UIImageView {
+        return imageView
+    }
+    
+    public var productPriceLabel: UILabel {
+        return priceLabel
+    }
+    
+    public var productDescriptionLabel: UILabel {
+        return descriptionLabel
+    }
 }
