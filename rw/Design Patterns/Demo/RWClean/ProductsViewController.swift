@@ -65,7 +65,7 @@ public class ProductsViewController: UIViewController {
         guard let viewController = segue.destination as? ProductDetailsViewController else { return }
         let indexPath = collectionView.indexPathsForSelectedItems?.first!
         let product = products[indexPath!.row]
-        viewController.product = product
+        viewController.productViewModel = ProductViewModel(product: product)
     }
 }
 

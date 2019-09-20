@@ -48,6 +48,7 @@
 		C239135B2333DB0400681520 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239135A2333DB0400681520 /* NetworkClient.swift */; };
 		C239135D2333DB0C00681520 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239135C2333DB0C00681520 /* NetworkError.swift */; };
 		C239135F2333E97D00681520 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239135E2333E97D00681520 /* ProductsViewController.swift */; };
+		C259DB8223350F0900E871D1 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259DB8123350F0900E871D1 /* ProductViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		C239135A2333DB0400681520 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		C239135C2333DB0C00681520 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C239135E2333E97D00681520 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		C259DB8123350F0900E871D1 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 				42C0F5D21EB7AE8800C6EBAB /* Controllers */,
 				C23913492333D2A500681520 /* Models */,
 				C239134B2333D2D600681520 /* Resources */,
+				C259DB8023350EDB00E871D1 /* ViewModels */,
 				C239134E2333D31B00681520 /* Views */,
 			);
 			name = "Cleaning Services";
@@ -390,6 +393,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		C259DB8023350EDB00E871D1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C259DB8123350F0900E871D1 /* ProductViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,6 +491,7 @@
 				421BD42B1E68C98B002F1F3C /* ReviewHomeInfoViewController.swift in Sources */,
 				C23913592333DAF400681520 /* Int+HTTPStatusCode.swift in Sources */,
 				422FEA5D1E675E8800AFDC41 /* AppDelegate.swift in Sources */,
+				C259DB8223350F0900E871D1 /* ProductViewModel.swift in Sources */,
 				42F164E11E6C55C200B90E22 /* ProductDetailsViewController.swift in Sources */,
 				C239135F2333E97D00681520 /* ProductsViewController.swift in Sources */,
 				422FEA921E676B7500AFDC41 /* HomeSquareFootageViewController.swift in Sources */,
